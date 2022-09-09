@@ -1,0 +1,19 @@
+version: '3' 
+ 
+services: 
+  php: 
+    build: 
+      ./php 
+    ports: 
+      - 8080:80 
+    volumes: 
+      - ./www:/var/www/html 
+    depends_on: 
+      - data 
+  data: 
+    image: mysql 
+    container_name: DB 
+    volumes: 
+        - "./sql/init.sql:/docker-entrypoint-initdb.d/1.sql"  
+    environment: 
+        MYSQL_ROOT_PASSWORD: password
