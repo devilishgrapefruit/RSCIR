@@ -8,7 +8,7 @@
 <table>
     <tr><th>Id</th><th>Name</th><th>Surname</th></tr>
 <?php
-$mysqli = new mysqli("localhost", "user", "password", "appDB");
+$mysqli = new mysqli("172.25.224.1", "user", "password", "appDB");
 $result = $mysqli->query("SELECT * FROM users");
 foreach ($result as $row){
     echo "<tr><td>{$row['ID']}</td><td>{$row['name']}</td><td>{$row['surname']}</td></tr>";
